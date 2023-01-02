@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap');
+
+:root{
+    --yellow:#8e7fa1;
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+*::selection{
+    background:var(--yellow);
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width:1.4rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:#222;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:var(--yellow);
+}
+
+body{
+    background:#111;
+    overflow-x: hidden;
+    padding-left: 35rem;
+}
+
+section{
+    min-height: 100vh;
+    padding:1rem;
+}
+
+.btn{
+    padding:.7rem 3rem;
+    background:#333;
+    color:#fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+.btn i{
+    padding:0 .5rem;
+    font-size: 1.8rem;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.heading{
+    text-align: center;
+    margin:0 6rem;
+    font-size: 4rem;
+    padding:1rem;
+    border-bottom: .1rem solid #fff4;
+    color:#fff;
+}
+
+.heading span{
+    color:var(--yellow);
+}
+
+header{
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;
+    height:100%;
+    width:35rem;
+    background:#1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+header .user img{
+    height:17rem;
+    width:17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border:.7rem solid var(--yellow);
+}
+
+
+header .user .name{
+    font-size: 3rem;
+    color:#fff;
+}
+
+header .user .post{
+    font-size: 1.8rem;
+    color:#eee;
+}
+
+header .navbar{
+    width:100%;
+}
+
+header .navbar ul{
+    list-style: none;
+    padding:1rem 3rem;
+}
+
+
+header .navbar ul li a{
+    display: block;
+    padding:1rem;
+    margin:1.5rem 0;
+    background:#333;
+    color:#fff;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+header .navbar ul li a:hover{
+    background:var(--yellow);
+}
+
+#menu{
+    position: fixed;
+    top:2rem; right:2rem;
+    background:#333;
+    color:#fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding:1rem 1.5rem;
+    z-index: 1000;
+    display: none;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding:0 15rem;
+}
+
+.home h3{
+    font-size: 2.2rem;
+    color:#fff;
+}
+
+.home h1{
+    font-size:4rem;
+    color:#fff;
+}
+
+.home h1 span{
+    color:var(--yellow);
+}
+
+.home p{
+    font-size:2rem;
+    color:#fff;
+    padding: 1rem 0;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:1rem 0;
+}
+
+.about .row .info{
+    flex:1 1 48rem;
+    padding:2rem 1rem;
+    padding-left: 6rem;
+}
+
+.about .row .info h3{
+    font-size: 2rem;
+    color:var(--yellow);
+    padding:1rem 0;
+    font-weight: normal;
+}
+
+.about .row .info h3 span{
+    color:#eee;
+    padding:0 .5rem;
+}
+
+.about .row .counter{
+    flex:1 1 48rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about .row .counter .box{
+    width:30rem;
+    background:#222;
+    text-align: center;
+    padding: 2rem;
+    margin:2rem;
+}
+
+.about .row .counter .box span{
+    font-size: 4rem;
+    color:var(--yellow);
+}
+.tools span{
+    color:var(--yellow);
+}
+.projects span{
+    color:var(--yellow);
+}
+.about .row .counter .box h3{
+    font-size: 2rem;
+    color:#fff;
+}
+
+.experiance .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:1rem 0;
+    padding-left: 3rem;
+}
+
+.experiance .box-container .box{
+    width:27rem;
+    margin:4rem 1rem;
+    padding-left: 4rem;
+    border-left: .2rem solid #fff;
+    position: relative;
+}
+
+.experiance .box-container .box span{
+    font-size: 1.3rem;
+    background:#222;
+    color:#fff;
+    border-radius: 5rem;
+    padding:.5rem 2.5rem;
+}
+
+.experiance .box-container .box h3{
+    font-size: 2rem;
+    color:#fff;
+    padding-top: 1.5rem;
+}
+
+.experiance .box-container .box p{
+    font-size: 1.4rem;
+    color:#eee;
+    padding: 1rem 0;
+}
+
+.experiance .box-container .box i{
+    position: absolute;
+    top:-1.5rem; left:-2.5rem;
+    height:5rem;
+    width: 5rem;
+    border-radius: 50%;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    color:#fff;
+    background:var(--yellow);
+}
+
+/*tools*/
+.tools .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tools .row .content{
+    flex:1 1 30rem;
+    padding:4rem;
+    padding-bottom: 0;
+}
+
+.tools .row form{
+    flex:1 1 45rem;
+    padding:2rem;
+    margin:2rem;
+    margin-bottom: 4rem;
+}
+
+.tools .row form .box{
+    padding:1.5rem;
+    margin:1rem 0;
+    background:#3333;
+    color:#fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width:100%;
+}
+
+.tools .row form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.tools .row form .message{
+    height: 15rem;
+    resize: none;
+}
+
+.tools .row .content .title{
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+.tools .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color:#eee;
+    padding:1rem 0;
+    font-weight: normal;
+}
+
+.tools .row .content .info h3 i{
+    padding-right: 1rem;
+    color:var(--yellow);
+}
+
+
+/*skills*/
+.skills .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skills .row .content{
+    flex:1 1 30rem;
+    padding:4rem;
+    padding-bottom: 0;
+}
+
+.skills .row form{
+    flex:1 1 45rem;
+    padding:2rem;
+    margin:2rem;
+    margin-bottom: 4rem;
+}
+
+.skills .row form .box{
+    padding:1.5rem;
+    margin:1rem 0;
+    background:#3333;
+    color:#fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width:100%;
+}
+
+.skills .row form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.skills .row form .message{
+    height: 15rem;
+    resize: none;
+}
+
+.skills .row .content .title{
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+.skills .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color:#eee;
+    padding:1rem 0;
+    font-weight: normal;
+}
+
+.skills .row .content .info h3 i{
+    padding-right: 1rem;
+    color:var(--yellow);
+}
+/*skills*/
+.projects .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projects .row .content{
+    flex:1 1 30rem;
+    padding:4rem;
+    padding-bottom: 0;
+}
+
+.projects .row form{
+    flex:1 1 45rem;
+    padding:2rem;
+    margin:2rem;
+    margin-bottom: 4rem;
+}
+
+.projects .row form .box{
+    padding:1.5rem;
+    margin:0rem 0;
+    background:#3333;
+    color:#fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width:100%;
+}
+
+.projects .row form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.projects .row form .message{
+    height: 15rem;
+    resize: none;
+}
+
+.projects .row .content .title{
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+.projects .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color:#eee;
+    padding:1rem 0;
+    font-weight: normal;
+}
+.projects .row .content .info h3 i{
+    padding-right: rem;
+    padding-bottom:0 rem;
+
+    color:var(--yellow);
+border:.7rem solid var(--yellow);
+
+}
+.projects .row  {
+    padding-right: 0rem;
+    padding-left: 2rem;
+
+
+border:0rem solid var(--yellow);
+width: 1070px;
+border-right: 0px;
+border-left: 0px;
+
+
+
+}
+.projects .row img {
+
+  max-width: fit-content;
+  position:sticky;
+
+
+}
+.projects ul{
+    list-style: none;
+list-style-type: none;
+}
+/*contact*/
+.contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact .row .content{
+    flex:1 1 30rem;
+    padding:4rem;
+    padding-bottom: 0;
+}
+
+.contact .row form{
+    flex:1 1 45rem;
+    padding:2rem;
+    margin:2rem;
+    margin-bottom: 4rem;
+}
+
+.contact .row form .box{
+    padding:1.5rem;
+    margin:1rem 0;
+    background:#3333;
+    color:#fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width:100%;
+}
+
+.contact .row .info  h3{
+    text-transform: lowercase;
+}
+
+
+.contact .row form .message{
+    height: 15rem;
+    resize: none;
+}
+
+
+
+.contact .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color:#eee;
+    padding:1rem 0;
+    font-weight: normal;
+}
+
+.contact .row .content .info h2{
+    padding-right: 1rem;
+    color:var(--yellow);
+  
+}
+
+.top{
+    position: fixed;
+    bottom:7.5rem; right: 2rem;
+    z-index: 100;
+    display: none;
+}
+
+
+.language{
+    margin-left: 5rem;
+}
+
+
+
+.fa:hover{
+    display:block !important;
+    z-index:10;}
+
+
+#address{
+    text-transform: capitalize;
+}
+
+.contact .row .content .info h3 a{
+    color: #fff;
+    text-transform: none;
+}
+
+
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.hi img {
+    display: flex;
+  justify-content: center;
+}
+
+.white{
+
+    color:#fff;
+}
+
+
+
+
+/* media queries  */
+
+@media (max-width:1200px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .home{
+        padding:1rem 4rem;
+    }
+
+}
+
+@media (max-width:991px){
+
+   header{
+       left:-120%;
+   }
+
+   #menu{
+       display: block;
+   }
+
+   header.toggle{
+    left:0%;
+   }
+
+   body{
+       padding:0;
+   }
+
+}
+
+@media (max-width:768px){
+
+    html{
+        font-size: 50%;
+    }
+ 
+ }
+
+@media (max-width:400px){
+
+    header{
+        width: 100vw;
+    }
+
+    .heading{
+        margin:0 3rem;
+    }
+
+    .about .row .counter .box{
+        width: 100%;
+    }
+ 
+    .education .box-container .box{
+        width:100%;
+    }
+
+    .skills .box-container .box{
+        width:100%;
+    }
+
+    .contact .row form{
+        margin:3rem 0;
+    }
+
+ }
+ #myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+    <header class="toggle " id="toggle">
+
+        <div class="user">
+            <img src="mmm.jpg" alt="">
+            <h3 class="name">Maria Demian </h3>
+            <p class="post">Computer and control Engineer</p>
+        </div>
+    
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#experiance">experiance</a></li>
+                <li><a href="#tools">Tools </a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    <div id="menu" class="fas fa-bars fa-times">
+        
+    </div>
+    <section class="home" id="home">
+
+        <h3>HI THERE !</h3>
+        <h1>I'M <span>Maria Demian</span></h1>
+        <h3>Fresh graduate engineer</h3>
+        <h3>
+            Passionate about data science and learning more about it. 
+            I started researching and learning about this science a few months ago. I learned many topics related to data science, and I aim to learn more about it.</h3>
+
+
+        <p>
+        </p>
+        <a href="#about"><button class="btn">about me <i class="fas fa-user"></i></button></a>
+    
+    </section>
+    <section class="about" id="about">
+
+        <h1 class="heading"> <span>about</span> me </h1>
+        
+        <div class="row">
+        
+            <div class="info">
+                <h3> <span> name : </span> Maria Demian </h3>
+                <h3> <span> age : </span> 23 </h3>
+                
+                <h3> <span> position : </span> search for a job as a data analyst </h3>
+                <h3> <span> languages : </span> 
+              &nbsp;<ul>
+                        <li class="language">Arabic : Native </li>
+                        <li class="language">English : professional working proficiency</li>
+                    </ul>
+                </h3>
+                
+            </div>
+        
+        
+        
+        </div>
+        
+        </section>
+        <section class="experiance" id="experiance">
+
+            <h1 class="heading"> my <span>Experience</span> </h1>
+            
+            <div class="box-container">
+            
+                <div class="box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>2021</span>
+                    <h3>Front End Developer, sigal  </h3>
+                    <p>Worked on dashboard website for Competitions application called omniti and worked at ptoolz website.</p>
+                </div>
+            
+                <div class="box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>2021</span>
+                    <h3>Internship  Web Development, El Shorouk Academy · </h3>
+                    <p>In this training get the basic information's of Html and CSS and JavaScript.</p>
+                </div>
+            
+                <div class="box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>2019</span>
+                    <span>2020</span>
+                    <h3>Arduino Internships, El Shorouk Academy · </h3>
+                    <p>Learn the basics of Arduino IDE and apply them in projects like
+                        Arduino soil moisture sensor watering system, Arduino traffic light control system and Arduino fire alarm system.</p>
+                </div>
+            
+             
+            
+                <div class="box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>2019</span>
+                    <h3>External Relations Team Member, Astronomy Club - Ain Shams </h3>
+                  
+                </div>
+                <div class="box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>2019</span>
+                    <h3>Student Electronics Trainee, الهيئة العربية للتصنيع </h3>
+                    
+                </div>
+            
+                <div class="box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>2018</span>
+                    <h3>Communication Trainee, Telecom Egypt
+                        </h3>
+                    <p> Spent this internship to improve knowledge about the optical fiber and its usage and the cables around different countries and international communications circles.</p>
+                </div>
+            
+            </div>
+            
+            </section>
+            <section class="tools" id="tools">
+
+                <h1 class="heading">My  <span>Tools </span> </h1>
+                
+                <div class="row">
+                
+                    <div class="content">   
+                        <h2 class="title">Tools for Data Analysis</h2>     
+                        <div class="info">
+                            
+                            <h3> <i class="fa fa-book"></i>statistics </h3>
+                            <h3> <i class="fa fa-book"></i>Microsoft excel</h3>
+                            <h3> <i class="fa fa-book"></i> Microsoft powerbi</h3>
+                            <h3> <i class="fa fa-book"></i> SQL  <span> &nbsp &nbsp knowledge</span></h3>
+                            <h3> <i class="fa fa-book"></i>MySQL</h3>
+                            <h3> <i class="fa fa-book"></i>Microsoft SQL Server</h3>
+                            <h3> <i class="fa fa-book"></i> Google Analytics <span>  &nbsp &nbsp knowledge</span> </h3>
+
+                          
+                        </div>
+                        
+                
+                    </div>
+                    
+                    <div class="content">   
+                        <h2 class="title">Tools for web</h2>       
+                        <div class="info">            
+                            <h3> <i class="fa fa-book"></i> html &amp; html5</h3>
+                            <h3> <i class="fa fa-book"></i> css &amp; css3</h3>
+                            <h3> <i class="fa fa-book"></i> bootstrap</h3>
+                        </div>    
+                    </div>
+            
+                    
+                
+                </div>
+                
+                </section>
+
+                    <section class="skills" id="skills">
+
+                        <h1 class="heading"> my <span>Skills</span> </h1>
+                        
+                        <div class="row">
+                        
+                            <div class="content">   
+                                <h2 class="title"> Skills</h2>     
+                                <div class="info">
+                                    <h3> <i class="fa fa-cogs"></i> Data collecting</h3>
+                                    <h3> <i class="fa fa-cogs"></i> Data cleaning and transformation</h3> 
+                                    <h3> <i class="fa fa-cogs"></i> Data Analysis</h3>
+                                    <h3> <i class="fa fa-cogs"></i> Data visualization</h3>
+
+                                  
+                                </div>
+                                
+                        
+                            </div>
+                            
+                            <div class="content">   
+                                <h2 class="title">Soft Skills</h2>       
+                                <div class="info">            
+                                    <h3> <i class="fa fa-cogs"></i> Have great skills in Teaching</h3>
+                                    <h3> <i class="fa fa-cogs"></i> Have a presentation skills</h3>
+
+                                    <h3> <i class="fa fa-cogs"></i> communication skills</h3>
+                              
+                                    <h3> <i class="fa fa-cogs"></i> Reporting</h3>
+                                </div>
+                                
+                        
+                            </div>
+                        
+                        </div>
+                        
+                        </section>
+                        <section class="projects" id="projects">
+
+                            <h1 class="heading"> my <span>projects</span> </h1>
+                            <div class="row">
+                        
+                                <div class="content">   
+                                    <h3 class="title"> <span>Dashboard of survey for the professional data analysts</span> </h3>     
+                                    <div class="info">
+                                        <ul>
+                                            <li><h3> 
+                                                <p>New dashboard to analysis a data for a survey for much people whose work in data field with powerbi
+
+                                                الداتا المستخدمة عباره عن استبيان لمجموعة من الاشخاص العاملين فى مجال البيانات حول العالم بمختلف بياناتهم
+                                                </p></h3></li>
+                                               <li><h3>  <p>  steps:</p></h3></li>
+                                               <li><h3>   <p> 1-تحميل الداتا للبرنامج  </p></h3></li>
+                                               <li><h3>    <p>    2- قراءة و فهم الداتا </p></h3></li>
+                                               <li><h3>   <p>    3- تحسين مستوى الداتا عن طريق cleaning and transformation</p></h3></li>
+                                               <li><h3>  <p> 
+                                                change data types for data ,,, normalize the data ,,,remove duplicates ,,, dealing with the missing values ,,, (use DAX functions) apply measure columns to use in analysis process
+
+                                                (there are an one sheet so no relations build for data)</p></h3></li>
+                                               <li><h3>  <p> 4-Ask questions about what I want to get from this data</p>
+                                               </h3></li>
+                                               <li><h3>    <p> 5-Select a chart to visualize the dataset tables
+                                                (choose the chart according to the question and what I need to show from this data)
+                                               </p> </h3></li>
+                                            <li><h3> <i class="fa fa-cogs"><img id="myImg"src="22.png" alt="" style="width: 600px;height: 400px;"></i> </h3></li>
+                                            <!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+
+                                        </ul>
+    
+                                    </div>
+                                    
+                            
+                                </div>
+                                
+                                <div class="content">   
+                                    <h3 class="title"><span> bike sales dashboard</span> </h3>       
+                                    <div class="info">            
+                                        <ul>
+                                            <li><h3> 
+                                                <p>New dashboard to analysis a data for a bike sales with Microsoft Excel and power pivot and power query
+
+                                                    الداتا المستخدمة عباره عن بيانات عن بيع الدراجات الهوائية
+                                                </p></h3></li>
+                                               <li><h3>  <p>  steps:</p></h3></li>
+                                               <li><h3>   <p> 1-تحميل الداتا للبرنامج  </p></h3></li>
+                                               <li><h3>    <p>    2- قراءة و فهم الداتا </p></h3></li>
+                                               <li><h3>   <p>    3- تحسين مستوى الداتا عن طريق cleaning and transformation</p></h3></li>
+                                               <li><h3>  <p> 
+                                                check spilling ,,, change data types for data ,,, normalize the data ,,,remove duplicates ,,, dealing with the missing values ,,, (use DAX functions) apply measure columns to use in analysis process
+
+                                                (there are an one sheet so no relations build for data)</p></h3></li>
+                                               <li><h3>  <p> 4-Ask questions about what I want to get from this data</p>
+                                               </h3></li>
+                                               <li><h3>    <p> 5-Select a chart to visualize the dataset tables
+                                                (choose the chart according to the question and what I need to show from this data)
+                                               </p> </h3></li>
+                                            <li><h3><i class="fa fa-cogs"> <img id="myyImg"src="11.jpg" alt="" style="width: 5
+                                            00px;height: 400px; padding-right: 0px; padding-right: 0px;"></i> </h3></li>
+                                           <div id="myModal" class="modal">
+                                            <span class="close">&times;</span>
+                                            <img class="modal-content" id="img01">
+                                            <div id="caption"></div>
+                                          </div>
+                                        
+                                        </ul>
+                                    </div>
+                                    
+                                    
+                            
+                                </div>
+                                <div class="content">   
+                                    <h3 class="title"><span> Market sales dashboard</span> </h3>       
+                                    <div class="info">            
+                                        <ul>
+                                            <li><h3> 
+                                                <p>second try to analysis a data for a market dataset with Microsoft excel
+                                                </p></h3></li>
+                                               <li><h3>  <p>  steps:</p></h3></li>
+                                               <li><h3>   <p>1. Apply the relations between data </p></h3></li>
+                                               <li><h3>    <p>    2. Using pivot tables in Excel</p></h3></li>
+                                               <li><h3>   <p>    3.Ask questions about what I want to get from this data</p></h3></li>
+                                               <li><h3>  <p> Select a chart to visualize the dataset tables</p></h3></li>
+                                               <li><h3>  <p> 4-Ask questions about what I want to get from this data</p>  </h3></li>
+                                              
+                                            <li><div class="row">
+                                                <div class="content info">
+
+                                                    <h3><i class="fa fa-cogs"> <img id="myImmg"src="71.jpg" alt="" style="width: 400px;height: 400px; padding-right: 0px; padding-right: 0px;"></i> </h3>
+                                                </div>
+                                                <div class="content info">
+
+                                                    <h3><i class="fa fa-cogs"> <img id="myImgg"src="73.jpg" alt="" style="width: 400px;height: 400px; padding-right: 0px; padding-right: 0px;"></i> </h3>
+                                                </div>
+
+                                            </div></li>
+                                           
+                                        
+                                        </ul>
+                                    </div>
+                                    
+                                    
+                            
+                                </div>
+                                <div class="content">   
+                                    <h3 class="title"><span> HR Manager dashboard</span> </h3>       
+                                    <div class="info">            
+                                        <ul>
+                                            <li><h3> 
+                                                <p>First try to analysis a data for an employee dataset  with Microsoft excel
+                                                </p></h3></li>
+                                               <li><h3>  <p>  steps:</p></h3></li>
+                                               <li><h3>   <p>Using pivot tables in Excel</p></h3></li>
+                                               <li><h3>    <p>  Ask questions about what I want to get from this data</p></h3></li>
+                                               <li><h3>   <p>   Select a chart to visualize the dataset tables</p></h3></li>
+                                    
+                                            <li><div class="row">
+                                                <div class="content info">
+
+                                                    <h3><i class="fa fa-cogs"> <img id="myImmmg"src="1111.png" alt="" style="width: 400px;height: 400px; padding-right: 0px; padding-right: 0px;"></i> </h3>
+                                                </div>
+                                                <div class="content info">
+
+                                                    <h3><i class="fa fa-cogs"> <img id="myImmgg"src="1112.png" alt="" style="width: 400px;height: 400px; padding-right: 0px; padding-right: 0px;"></i> </h3>
+                                                </div>
+
+                                            </div></li>
+                                           
+                                        
+                                        </ul>
+                                    </div>
+                                    
+                                    
+                            
+                                </div>
+                            
+                            </div>
+                            
+                            </section>
+
+                    <section class="contact" id="contact">
+
+                        <h1 class="heading"> <span>contact</span> me </h1>
+                        
+                        <div class="row">
+                        
+                            <div class="content">
+                                
+                                <div class="info">
+                                    <h2><span> <i class="fas fa-envelope" title="Email"></i> </span>  Email</h2>
+
+                                    <h3><span> <i class="fas fa-envelope" title="Email"></i> </span> maria.demian777@gmail.com </h3>
+                                    <h2> <i class="fas fa-phone" title="Phone and Whatsapp"></i>Phone and Whatsapp</h2>
+                                    <h3> <i class="fas fa-phone" title="Phone and Whatsapp"></i>  &nbsp;<i class="fab fa-whatsapp" title="Phone ond Whatsapp"></i>+2 01289893121 </h3>
+                                    <h2><i class="fab fa-linkedin-in" title="Linkedin"></i>Linkedin</h2>
+                                    <h3> <a href="https://www.linkedin.com/in/maria-demian-3679601a2" target="_blank"><i class="fab fa-linkedin-in" title="Linkedin"></i>https://www.linkedin.com/in/maria-demian-3679601a2
+                                    </a> </h3>
+                                    <h2 id="address"><i class="fas fa-map-marker-alt" title="Address"></i> Address</h2>
+                                    <h3 id="address"> <i class="fas fa-map-marker-alt" title="Address"></i> Cairo, Egypt</h3>
+                                </div>
+                        
+                            </div>
+                        
+                        </div>
+                        
+                        </section>
+
+                        <script>
+                            // Get the modal
+                            var modal = document.getElementById("myModal");
+                            var too = document.getElementById("toggle");
+                            
+                            // Get the image and insert it inside the modal - use its "alt" text as a caption
+                            var img = document.getElementById("myyImg");
+                            var imgg = document.getElementById("myImg");
+                            var imgggg = document.getElementById("myImmg");
+                            var imggg = document.getElementById("myImgg");
+                            var im = document.getElementById("myImmmg");
+                            var imm = document.getElementById("myImmgg");
+
+
+
+
+
+                            var modalImg = document.getElementById("img01");
+                            var captionText = document.getElementById("caption");
+
+
+                            img.onclick = function(){
+                              modal.style.display = "block";
+                              too.style.display = "none";
+
+                              modalImg.src = this.src;
+                              captionText.innerHTML = this.alt;
+                            }
+                            imgg.onclick = function(){
+                              modal.style.display = "block";
+                              too.style.display = "none";
+
+                              modalImg.src = this.src;
+                              captionText.innerHTML = this.alt;
+                            }
+                            imgggg.onclick = function(){
+                              modal.style.display = "block";
+                              too.style.display = "none";
+
+                              modalImg.src = this.src;
+                              captionText.innerHTML = this.alt;
+                            }
+                            
+                            imggg.onclick = function(){
+                              modal.style.display = "block";
+                              too.style.display = "none";
+
+                              modalImg.src = this.src;
+                              captionText.innerHTML = this.alt;
+                            }
+                            imm.onclick = function(){
+                              modal.style.display = "block";
+                              too.style.display = "none";
+
+                              modalImg.src = this.src;
+                              captionText.innerHTML = this.alt;
+                            }
+                            im.onclick = function(){
+                              modal.style.display = "block";
+                              too.style.display = "none";
+
+                              modalImg.src = this.src;
+                              captionText.innerHTML = this.alt;
+                            }
+                            
+                            
+                            // Get the <span> element that closes the modal
+                            var span = document.getElementsByClassName("close")[0];
+                            
+                            // When the user clicks on <span> (x), close the modal
+                            span.onclick = function() { 
+                              modal.style.display = "none";
+                              too.style.display = "block";
+
+                            }
+                            </script>
+</body>
+</html>
